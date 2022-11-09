@@ -46,17 +46,17 @@ public class TrigonometricFunctions {
 	 * @return (double): Sin(radian)
 	 */
 	public static double sin(double x) {
-		double term = 1;
+		double xValue = 1;
 		double total = 0;
-		for (int i = 1; term != 0; i++) {
-			term *= (x / i);
+		for (int i = 1; xValue != 0; i++) {
+			xValue *= (x / i);
 			// For every alternate odd number, y, we need to
-			// add and subtract its formed term (x ^ y)/y!
+			// add and subtract its formed xValue (x ^ y)/y!
 			// For every even number, we simply need to multiply
-			// term with (x / i) for forming the factorial and
+			// xValue with (x / i) for forming the factorial and
 			// also continuing the powers of x
-			if (i % 4 == 1) total += term;
-			else if (i % 4 == 3) total -= term;
+			if (i % 4 == 1) total += xValue;
+			else if (i % 4 == 3) total -= xValue;
 		}
 		return total;
 	}
@@ -70,19 +70,19 @@ public class TrigonometricFunctions {
 	 * @return (double): Cos(radian)
 	 */
 	public static double cos(double x) {
-		double term = 1;
+		double xValue = 1;
 		// Keeping total = 1 as Taylor series for cos starts
 		// with 1 - ((x ^ 2) / 2!) + ...
 		double total = 1;
-		for (int i = 1; term != 0; i++) {
-			term *= (x / i);
+		for (int i = 1; xValue != 0; i++) {
+			xValue *= (x / i);
 			// For every alternate even number, y, we need to
-			// add and subtract its formed term (x ^ y)/y!
+			// add and subtract its formed xValue (x ^ y)/y!
 			// For every odd number, we simply need to multiply
-			// term with (x / i) for forming the factorial and
+			// xValue with (x / i) for forming the factorial and
 			// also continuing the powers of x
-			if (i % 4 == 2) total -= term;
-			else if (i % 4 == 0) total += term;
+			if (i % 4 == 2) total -= xValue;
+			else if (i % 4 == 0) total += xValue;
 		}
 		return total;
 	}
