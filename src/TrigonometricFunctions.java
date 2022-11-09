@@ -34,7 +34,7 @@ public class TrigonometricFunctions {
 	 */
 	public static double degreeToRadian (double degree) {
 		degree = degree % 360;
-		return (2 * degree * PI) / 360;
+		return degree * PI / 180;
 	}
 	
 	/**
@@ -45,16 +45,20 @@ public class TrigonometricFunctions {
 	 * to be calculated 
 	 * @return (double): Sin(radian)
 	 */
-	public static double sin(double rad) {
-		double x = rad;
+	public static double sin(double x) {
 		double term = 1;
-		double sum = 0;
+		double total = 0;
 		for (int i = 1; term != 0; i++) {
 			term *= (x / i);
-			if (i % 4 == 1) sum += term;
-			if (i % 4 == 3) sum -= term;
+			// For every alternate odd number, y, we need to
+			// add and subtract its formed term (x ^ y)/y!
+			// For every even number, we simply need to multiply
+			// term with (x / i) for forming the factorial and
+			// also continuing the powers of x
+			if (i % 4 == 1) total += term;
+			else if (i % 4 == 3) total -= term;
 		}
-		return sum;
+		return total;
 	}
 	
 	/**
@@ -65,16 +69,22 @@ public class TrigonometricFunctions {
 	 * to be calculated 
 	 * @return (double): Cos(radian)
 	 */
-	public static double cos(double rad) {
-		double x = rad;
+	public static double cos(double x) {
 		double term = 1;
-		double sum = 1;
+		// Keeping total = 1 as Taylor series for cos starts
+		// with 1 - ((x ^ 2) / 2!) + ...
+		double total = 1;
 		for (int i = 1; term != 0; i++) {
 			term *= (x / i);
-			if (i % 4 == 2) sum -= term;
-			if (i % 4 == 0) sum += term;
+			// For every alternate even number, y, we need to
+			// add and subtract its formed term (x ^ y)/y!
+			// For every odd number, we simply need to multiply
+			// term with (x / i) for forming the factorial and
+			// also continuing the powers of x
+			if (i % 4 == 2) total -= term;
+			else if (i % 4 == 0) total += term;
 		}
-		return sum;
+		return total;
 	}
 	
 	/**
@@ -85,11 +95,15 @@ public class TrigonometricFunctions {
 	 * to be calculated 
 	 * @return (double): Tan(radian)
 	 */
-	public static double tan(double rad) {
-		double sineValue = sin(rad);
-		double cosineValue = cos(rad);
+	public static double tan(double x) {
+		double sineValue = sin(x);
+		double cosineValue = cos(x);
+		// Handling 1/0 = infinity scenario
+		// by returning maximum or minimum
+		// possible "double" values based on value of
+		// cos(x) and x
 		if (cosineValue == 0) {
-			if (rad >= 0) {
+			if (x >= 0) {
 				return Double.MAX_VALUE;	
 			} else {
 				return Double.MIN_VALUE;
@@ -111,10 +125,14 @@ public class TrigonometricFunctions {
 	 * To return a double value for infinity, we will
 	 * return maximum possible double value
 	 */
-	public static double cosec(double rad) {
-		double sineValue = sin(rad);
+	public static double cosec(double x) {
+		double sineValue = sin(x);
+		// Handling 1/0 = infinity scenario
+		// by returning maximum or minimum
+		// possible "double" values based on value of
+		// sin(x) and x
 		if (sineValue == 0) {
-			if (rad >= 0) {
+			if (x >= 0) {
 				return Double.MAX_VALUE;	
 			} else {
 				return Double.MIN_VALUE;
@@ -134,10 +152,14 @@ public class TrigonometricFunctions {
 	 * To return a double value for infinity, we will
 	 * return maximum possible double value
 	 */
-	public static double sec(double rad) {
-		double cosineValue = cos(rad);
+	public static double sec(double x) {
+		double cosineValue = cos(x);
+		// Handling 1/0 = infinity scenario
+		// by returning maximum or minimum
+		// possible "double" values based on value of
+		// cos(x) and x
 		if (cosineValue == 0) {
-			if (rad >= 0) {
+			if (x >= 0) {
 				return Double.MAX_VALUE;	
 			} else {
 				return Double.MIN_VALUE;
@@ -157,11 +179,15 @@ public class TrigonometricFunctions {
 	 * To return a double value for infinity, we will
 	 * return maximum possible double value
 	 */
-	public static double cot(double rad) {
-		double sineValue = sin(rad);
-		double cosineValue = cos(rad);
+	public static double cot(double x) {
+		double sineValue = sin(x);
+		double cosineValue = cos(x);
+		// Handling 1/0 = infinity scenario
+		// by returning maximum or minimum
+		// possible "double" values based on value of
+		// sin(x) and x
 		if (sineValue == 0) {
-			if (rad >= 0) {
+			if (x >= 0) {
 				return Double.MAX_VALUE;	
 			} else {
 				return Double.MIN_VALUE;

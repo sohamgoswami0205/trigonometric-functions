@@ -13,7 +13,13 @@ import org.junit.Test;
  *
  * Test cases for sin, cos and tan using the TrigonometricFunctions.java
  * Angles used for each test:
- * 0, 45, -45, 90, 105, -105, 180, 190, -190, 270, 300, -300, 360
+ * (0, 45, -45, 90, 105, -105, 180, 190, -190, 270, 300, -300, 360)
+ * Base Axis Values: 0, 90, 180, 270, 360
+ * First Quadrant: 45
+ * Second Quadrant: 105
+ * Third Quadrant: 190
+ * Fourth Quadrant: 300
+ * Negatives: -45, -105, -190, -300 
  * 
  */
 public class TrigonometricFunctions_test {
@@ -43,7 +49,7 @@ public class TrigonometricFunctions_test {
 	}
 	
 	@Test
-	public void testSina45() {
+	public void testSinN45() {
 		double degree = -45;
 		double radian = TrigonometricFunctions.degreeToRadian(degree);
 		assertEquals(Math.sin(radian), TrigonometricFunctions.sin(radian), decimalpoints);
@@ -64,7 +70,7 @@ public class TrigonometricFunctions_test {
 	}
 	
 	@Test
-	public void testSina105() {
+	public void testSinN105() {
 		double degree = -105;
 		double radian = TrigonometricFunctions.degreeToRadian(degree);
 		assertEquals(Math.sin(radian), TrigonometricFunctions.sin(radian), decimalpoints);
@@ -85,7 +91,7 @@ public class TrigonometricFunctions_test {
 	}
 	
 	@Test
-	public void testSina190() {
+	public void testSinN190() {
 		double degree = -190;
 		double radian = TrigonometricFunctions.degreeToRadian(degree);
 		assertEquals(Math.sin(radian), TrigonometricFunctions.sin(radian), decimalpoints);
@@ -106,7 +112,7 @@ public class TrigonometricFunctions_test {
 	}
 	
 	@Test
-	public void testSina300() {
+	public void testSinN300() {
 		double degree = -300;
 		double radian = TrigonometricFunctions.degreeToRadian(degree);
 		assertEquals(Math.sin(radian), TrigonometricFunctions.sin(radian), decimalpoints);
@@ -134,7 +140,7 @@ public class TrigonometricFunctions_test {
 	}
 	
 	@Test
-	public void testCosa45() {
+	public void testCosN45() {
 		double degree = -45;
 		double radian = TrigonometricFunctions.degreeToRadian(degree);
 		assertEquals(Math.cos(radian), TrigonometricFunctions.cos(radian), decimalpoints);
@@ -155,7 +161,7 @@ public class TrigonometricFunctions_test {
 	}
 	
 	@Test
-	public void testCosa105() {
+	public void testCosN105() {
 		double degree = -105;
 		double radian = TrigonometricFunctions.degreeToRadian(degree);
 		assertEquals(Math.cos(radian), TrigonometricFunctions.cos(radian), decimalpoints);
@@ -176,7 +182,7 @@ public class TrigonometricFunctions_test {
 	}
 	
 	@Test
-	public void testCosa190() {
+	public void testCosN190() {
 		double degree = -190;
 		double radian = TrigonometricFunctions.degreeToRadian(degree);
 		assertEquals(Math.cos(radian), TrigonometricFunctions.cos(radian), decimalpoints);
@@ -197,7 +203,7 @@ public class TrigonometricFunctions_test {
 	}
 	
 	@Test
-	public void testCosa300() {
+	public void testCosN300() {
 		double degree = -300;
 		double radian = TrigonometricFunctions.degreeToRadian(degree);
 		assertEquals(Math.cos(radian), TrigonometricFunctions.cos(radian), decimalpoints);
@@ -225,7 +231,7 @@ public class TrigonometricFunctions_test {
 	}
 	
 	@Test
-	public void testTana45() {
+	public void testTanN45() {
 		double degree = -45;
 		double radian = TrigonometricFunctions.degreeToRadian(degree);
 		assertEquals(Math.tan(radian), TrigonometricFunctions.tan(radian), decimalpoints);
@@ -246,7 +252,7 @@ public class TrigonometricFunctions_test {
 	}
 	
 	@Test
-	public void testTana105() {
+	public void testTanN105() {
 		double degree = -105;
 		double radian = TrigonometricFunctions.degreeToRadian(degree);
 		assertEquals(Math.tan(radian), TrigonometricFunctions.tan(radian), decimalpoints);
@@ -267,7 +273,7 @@ public class TrigonometricFunctions_test {
 	}
 	
 	@Test
-	public void testTana190() {
+	public void testTanN190() {
 		double degree = -190;
 		double radian = TrigonometricFunctions.degreeToRadian(degree);
 		assertEquals(Math.tan(radian), TrigonometricFunctions.tan(radian), decimalpoints);
@@ -288,7 +294,7 @@ public class TrigonometricFunctions_test {
 	}
 	
 	@Test
-	public void testTana300() {
+	public void testTanN300() {
 		double degree = -300;
 		double radian = TrigonometricFunctions.degreeToRadian(degree);
 		assertEquals(Math.tan(radian), TrigonometricFunctions.tan(radian), decimalpoints);
