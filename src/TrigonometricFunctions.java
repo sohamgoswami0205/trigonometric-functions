@@ -48,6 +48,7 @@ public class TrigonometricFunctions {
 	public static double sin(double x) {
 		double xValue = 1;
 		double total = 0;
+		boolean posFlag = true;
 		for (int i = 1; xValue != 0; i++) {
 			xValue *= (x / i);
 			// For every alternate odd number, y, we need to
@@ -55,8 +56,11 @@ public class TrigonometricFunctions {
 			// For every even number, we simply need to multiply
 			// xValue with (x / i) for forming the factorial and
 			// also continuing the powers of x
-			if (i % 4 == 1) total += xValue;
-			else if (i % 4 == 3) total -= xValue;
+			if (i % 2 != 0) {
+				if (posFlag) total += xValue;
+				else total -= xValue;
+				posFlag = !posFlag;
+			}
 		}
 		return total;
 	}
@@ -74,6 +78,7 @@ public class TrigonometricFunctions {
 		// Keeping total = 1 as Taylor series for cos starts
 		// with 1 - ((x ^ 2) / 2!) + ...
 		double total = 1;
+		boolean posFlag = false;
 		for (int i = 1; xValue != 0; i++) {
 			xValue *= (x / i);
 			// For every alternate even number, y, we need to
@@ -81,8 +86,11 @@ public class TrigonometricFunctions {
 			// For every odd number, we simply need to multiply
 			// xValue with (x / i) for forming the factorial and
 			// also continuing the powers of x
-			if (i % 4 == 2) total -= xValue;
-			else if (i % 4 == 0) total += xValue;
+			if (i % 2 == 0) {
+				if (!posFlag) total -= xValue; 
+				else total += xValue;
+				posFlag = !posFlag;
+			}
 		}
 		return total;
 	}
