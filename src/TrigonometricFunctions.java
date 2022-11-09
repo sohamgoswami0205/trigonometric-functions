@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
  * Soham Goswami (110093442)
  * Aman Chauhan (110094502)
  * 
- * @version 2.0.0
+ * @version 3.0.0
  *
  */
 public class TrigonometricFunctions {
@@ -97,6 +97,8 @@ public class TrigonometricFunctions {
 		}
 		return (sineValue / cosineValue);
 	}
+	
+//-----ADDITIONAL METHODS RELATED TO THE IMPLEMENTED ONES MEANT FOR MATH LIBRARY------ 
 	
 	/**
 	 * Method to calculate cosecant value of the radian
